@@ -13,28 +13,64 @@
 ---
 
 ### Задание 2
+![Скрин выполнения Pipline](img/2.png)  
 
-`Приведите ответ в свободной форме........`
+*Файл .gitlab-ci.yml*
+```
+ stages:
+  - code_intel
+  - build
+  - test
+  - code_quality
+  - deploy
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
+code_intelligence_go:
+  stage: code_intel
+  image: sourcegraph/lsif-go:v1
+  tags:
+    - docker
+  before_script:
+    - git remote set-url origin https://github.com/netology-code/sdvps-materials.git
+    - go mod edit -module github.com/netology-code/sdvps-materials
+    - go mod tidy
+  script:
+    - lsif-go
+
+build:
+  stage: build
+  image: docker:latest
+  tags:
+    - docker
+  script:
+    - docker info
+    - echo "Building the project..."
+
+test:
+  stage: test
+  image: docker:latest
+  tags:
+    - docker
+  script:
+    - echo "Running tests..."
+    - echo "Tests passed!"
+
+code_quality:
+  stage: code_quality
+  image: registry.gitlab.com/gitlab-org/ci-cd/codequality:0.96.0-gitlab.1
+  tags:
+    - docker
+  script:
+    - echo "Running code quality scan..."
+
+deploy:
+  stage: deploy
+  image: docker:latest
+  tags:
+    - docker
+  script:
+    - echo "Deploying to production..."
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
-```
-
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота 2](ссылка на скриншот 2)`
-
-
 ---
 
 ### Задание 3
