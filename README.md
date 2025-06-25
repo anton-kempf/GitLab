@@ -84,7 +84,7 @@ deploy:
   tags:
     - docker
   script:
-    - echo "Deploying to production..."
+    - echo "Deploying to production..." ```
 
 ## 🌟 Задание 3*
 
@@ -99,8 +99,8 @@ deploy:
   
 📄 *Содержимое `.gitlab-ci.yml`:*   
   
-```
-stages:
+
+```stages:
   - code_intel
   - build
   - test
@@ -156,9 +156,8 @@ deploy:
   tags:
     - docker
   script:
-    - echo "Deploying to production..."
+    - echo "Deploying to production..."```
 
-```
 📎 *Скриншот выполнения: Pipline этап сборки запускался сразу, не дожидаясь результатов тестов:*    
 
 ![Pipline этап сборки запускался сразу, не дожидаясь результатов тестов](img/3.png)  
