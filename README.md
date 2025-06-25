@@ -84,7 +84,8 @@ deploy:
   tags:
     - docker
   script:
-    - echo "Deploying to production..." ```
+    - echo "Deploying to production..." 
+```
 
 ## 🌟 Задание 3*
 
@@ -156,7 +157,8 @@ deploy:
   tags:
     - docker
   script:
-    - echo "Deploying to production..."```
+    - echo "Deploying to production..."
+```
 
 📎 *Скриншот выполнения: Pipline этап сборки запускался сразу, не дожидаясь результатов тестов:*    
 
